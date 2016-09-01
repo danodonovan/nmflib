@@ -1,3 +1,4 @@
+import unittest
 import numpy as np
 
 from nmflib.projective import ProjectiveNMF
@@ -6,20 +7,22 @@ from nmflib.clusternmf import ClusterNMF
 from sklearn.datasets import load_iris
 
 
-class TestPNMF:
+class TestPNMF(unittest.TestCase):
 
-    def __init__(self):
+    @classmethod
+    def setUpClass(cls):
 
         iris = load_iris()
         X, y = iris["data"], iris["target"]
 
-        self.X = X
+        cls.X = X
 
-        self.pnmf = ProjectiveNMF(X, 5, stopconv=1e-4)
-        self.cvx = ClusterNMF(X, 5, stopconv=1e-4)
+    def setUp(self):
+
+        self.pnmf = ProjectiveNMF(self.X, 5, stopconv=1e-4)
+        self.cvx = ClusterNMF(self.X, 5, stopconv=1e-4)
         self.res = self.pnmf.predict()
         self.cvxres = self.cvx.predict()
-
 
     def test_pnmf_converge(self):
         # Test that the objective function is non-increasing
