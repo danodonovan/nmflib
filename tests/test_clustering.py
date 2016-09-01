@@ -1,5 +1,4 @@
-from ..cluster import NMFClustering
-from .. import *
+from nmflib.cluster import NMFClustering
 
 # test that the NMF classes are assigned correctly
 

@@ -1,7 +1,8 @@
-
 from sklearn.datasets import load_iris
-from .. import SparseNMF, NMF
 import numpy as np
+
+from nmflib import SparseNMF, NMF
+
 
 iris = load_iris()
 X, y = iris["data"], iris["target"]

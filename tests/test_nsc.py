@@ -1,15 +1,15 @@
 """
 Tests for nonnegative spectral clustering
 """
-
-from ..nsc import NSpecClus
 import numpy as np
+from sklearn.datasets import load_iris
+
+from nmflib.nsc import NSpecClus
 
 
 class TestNSC:
 
     def __init__(self):
-        from sklearn.datasets import load_iris
 
         iris = load_iris()
         X, y = iris["data"], iris["target"]

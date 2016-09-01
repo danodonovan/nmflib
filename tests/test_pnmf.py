@@ -1,13 +1,14 @@
-
-from ..projective import ProjectiveNMF
-from ..clusternmf import ClusterNMF
 import numpy as np
+
+from nmflib.projective import ProjectiveNMF
+from nmflib.clusternmf import ClusterNMF
+
+from sklearn.datasets import load_iris
 
 
 class TestPNMF:
 
     def __init__(self):
-        from sklearn.datasets import load_iris
 
         iris = load_iris()
         X, y = iris["data"], iris["target"]
