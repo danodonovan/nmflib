@@ -1,3 +1,8 @@
 #!/usr/bin/env python
-# encoding: utf-8
-from __future__ import print_function, division
+from setuptools import setup, find_packages
+
+setup(
+    name='nmflib',
+    packages=find_packages(include=["nmflib", "nmflib.*"],
+                           exclude=["tests", "tests.*"]),
+)
